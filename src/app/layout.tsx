@@ -1,15 +1,16 @@
+import dynamic from "next/dynamic";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const StoreProvider = dynamic(()=> import('../providers/StoreProvider'));
+const ThemeProvider = dynamic(()=> import('@/providers/ThemeProvider'));
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'], // chọn các độ đậm bạn cần
+  variable: '--font-roboto', // optional, dùng cho Tailwind
 });
 
 export const metadata: Metadata = {
@@ -24,8 +25,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+      <body className={`${roboto.variable}`}>
+        {/* <StoreProvider> */}
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
+        {/* </StoreProvider> */}
       </body>
     </html>
   );
