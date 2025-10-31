@@ -1,13 +1,14 @@
 import dynamic from "next/dynamic"
 
-const RootLayoutCustome  = dynamic(()=> import("@/layout/RootLayout")) 
+const RootLayoutCustome = dynamic(() => import("@/layout/RootLayout"))
 
-const DashboardLayout = ({ chidlren}: {
-    chidlren: React.ReactNode
+
+const DashboardLayout = ({ children}: {
+    children: React.ReactNode
 }) =>{
     return(
         <RootLayoutCustome>
-            {chidlren}
+            {children}
         </RootLayoutCustome>
     )
 }

@@ -7,7 +7,6 @@ import { Button } from "@/components-system/Button/Button";
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [enabled, setEnabled] = useState(false);
 
   // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMounted(true), []);
@@ -16,7 +15,7 @@ export default function ThemeToggle() {
   return (
     <Button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className={`relative inline-flex h-10 !w-23 items-center rounded-full p-1 transition-colors duration-300 border-none`}
+      className={`relative inline-flex h-10 w-23! items-center rounded-full p-1 transition-colors duration-300 border-none`}
     >
       {/* Nút tròn */}
       <span

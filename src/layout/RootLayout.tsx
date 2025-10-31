@@ -3,11 +3,8 @@ import dynamic from "next/dynamic";
 const Header = dynamic(()=> import('./Header'));
 const Sidebar = dynamic(()=> import('@/components/sidebar'))
 
-type RootLayout = {
-  children: React.ReactNode;
-};
 
-const RootLayoutCustome = ({ children }: RootLayout) => {
+const RootLayoutCustome = ({ children }: { children: React.ReactNode }) => {
   return (
      <div>
       <div className="grid grid-cols-5">

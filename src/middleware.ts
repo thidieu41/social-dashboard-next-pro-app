@@ -3,25 +3,24 @@ import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
   // const token = request.cookies.get("nextToken")?.value;
-  const token = false;
+  const token = true;
   const pathname = request.nextUrl.pathname;
 
-  console.log(pathname, token);
-  if (token) {
-    if (!pathname.startsWith("/login") || !pathname) {
-      return NextResponse.redirect(new URL("/login", request.url));
-    }
-  } else {
-    if (pathname === "/login") {
-      return NextResponse.redirect(new URL("/dashboard", request.url));
-    }
+  // ✅ Cho phép /login truy cập mà không bị redirect vòng lặp
+  if (!token && pathname !== "/login") {
+    return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  // Nếu có token => cho vào app
+  // ✅ Nếu có token rồi mà vẫn vào /login => đưa sang /dashboard
+  if (token && (pathname === "/login" || pathname === '/')) {
+    return NextResponse.redirect(new URL("/dashboard", request.url));
+  }
+
+  // ✅ Cho phép hiển thị bình thường
   return NextResponse.next();
 }
 
-// Áp dụng cho những path cần bảo vệ
+// Áp dụng middleware cho tất cả path trừ static
 export const config = {
-  matcher: ["/dashboard/:path*", "/profile/:path*"],
+  matcher:  ['/((?!api|_next/static|favicon.ico|images).*)',],
 };
