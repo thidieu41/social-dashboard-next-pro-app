@@ -21,7 +21,6 @@ const Input = (props: InputType) => {
     "w-full border border-gray-400 pl-10 py-3 rounded-lg focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-400",
     className
   );
-  console.log(mergedClass, 'mrege')
   return (
     <div className="flex flex-col gap-2">
       {label && (

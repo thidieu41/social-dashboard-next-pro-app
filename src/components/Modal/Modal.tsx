@@ -1,6 +1,7 @@
 import { Button } from "@/components-system/Button/Button";
 import { twMerge } from "tailwind-merge";
 import { X } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 
 type ModalProps = React.HTMLAttributes<HTMLDivElement> & {
   title?: string;
@@ -27,20 +28,26 @@ export default function Modal(props: ModalProps) {
       )}
 
       {/* Modal trượt từ phải ra */}
-      <div
-        className={`modal-wrap fixed top-0 right-0 h-full w-1/3 shadow-2xl z-50 transform transition-transform duration-400 ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        <div className="flex justify-between items-center p-4 border-b">
-          <h2 className="text-lg font-semibold">{title}</h2>
-          <Button onClick={handleSetModalToogle}>
-            <X className="w-5 h-5" />
-          </Button>
-        </div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.aside
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="modal-wrap fixed top-0 right-0 h-full md:w-1/3 w-3/4 shadow-2xl z-50"
+          >
+            <div className="flex justify-between items-center p-4 border-b">
+              <h2 className="text-lg font-semibold">{title}</h2>
+              <Button onClick={handleSetModalToogle}>
+                <X className="w-5 h-5" />
+              </Button>
+            </div>
 
-        <div className={mergeClass}>{children}</div>
-      </div>
+            <div className={mergeClass}>{children}</div>
+          </motion.aside>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

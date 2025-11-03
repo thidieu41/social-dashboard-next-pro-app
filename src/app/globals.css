@@ -1,66 +1,77 @@
 @import "tailwindcss";
 
 :root {
-  /* Border */
+  /* Base colors */
+  --color-bg: #f8fafc; /* nền tổng thể sáng dịu */
+  --color-text: #1e293b; /* chữ chính */
+  --color-text-secondary: #6b7280; /* chữ phụ */
+  --color-text-title: #2563eb; /* tiêu đề xanh nhẹ */
+
+  /* Sidebar */
+  --color-sidebar-bg: #f3f4f6;
+  --color-sidebar-hover: #e4e8ee;
+  --color-sidebar-active-bg: rgba(59, 130, 246, 0.12);
+  --color-sidebar-active-text: #2563eb;
+  --color-border: #e5e7eb;
+
+  /* Card / Surface */
+  --color-surface: #f6f8fa; /* giảm sáng hơn trắng */
   --border-color: #d1d5db;
 
-  /* Base colors */
-  --color-primary: #1e293b; /* Xanh than nhẹ, trung tính */
-  --color-accent: #3b82f6; /* Xanh nhấn nhẹ */
-  --color-bg: #f8fafc; /* Nền sáng dịu */
-  --color-sidebar-bg: #f3f4f6; /* Sidebar xám sáng hơn nền chút */
-  --color-sidebar-hover: #e2e8f0; /* Hover sidebar nhẹ nhàng */
-  --color-text: #1e293b; /* Chữ chính */
-  --color-text-secondary: #6b7280; /* Chữ phụ */
-  --color-border: #e5e7eb; /* Viền nhạt */
-  --color-surface: #ffffff; /* Bề mặt card / box */
-
-  /* Button (outline style) */
+  /* Button (primary - outline style) */
   --btn-bg: transparent;
   --btn-text: #1e293b;
   --btn-border: #cbd5e1;
-  --btn-hover-bg: rgba(59, 130, 246, 0.08); /* xanh nhẹ, trong suốt */
-  --btn-hover-border: #94a3b8;
-  --btn-hover-text: #1e293b;
+  --btn-hover-bg: rgba(59, 130, 246, 0.08);
 
-  /* sibdebar */
-  --color-sidebar-active-bg: rgba(59, 130, 246, 0.12); /* xanh nhẹ */
-  --color-sidebar-active-text: #2563eb; /* xanh dương nhấn */
+  /* Button secondary */
+  --btn-secondary-bg: #e0f2fe;
+  --btn-secondary-text: #1e3a8a;
+  --btn-secondary-border: #93c5fd;
+  --btn-secondary-hover-bg: #dbeafe;
+  --btn-secondary-hover-text: #1e3a8a;
 
-  /* Stack*/
-  --stack-box-shadow:rgba(0, 0, 0, 0.05)
-
+  /* Error color */
+  --color-error-bg: #fef2f2;
+  --color-error-text: #b91c1c;
+  --color-error-border: #fca5a5;
 }
 
 .dark {
-  /* Border */
+  /* Base colors */
+  --color-bg: #1f2937;
+  --color-text: #f1f5f9;
+  --color-text-secondary: #94a3b8;
+  --color-text-title: #60a5fa;
+
+  /* Sidebar */
+  --color-sidebar-bg: #273445;
+  --color-sidebar-hover: #334155;
+  --color-sidebar-active-bg: rgba(96, 165, 250, 0.15);
+  --color-sidebar-active-text: #60a5fa;
+  --color-border: #475569;
+
+  /* Card / Surface */
+  --color-surface: #2a3648;
   --border-color: #3f4a59;
 
-  /* Base colors */
-  --color-primary: #334155; /* Xanh than trung bình (không quá tối) */
-  --color-accent: #60a5fa; /* Xanh sáng hơn chút để tạo điểm nhấn */
-  --color-bg: #1f2937; /* Nền xanh than nhạt (dễ nhìn) */
-  --color-sidebar-bg: #273445; /* Sidebar xám xanh nhẹ hơn #111827 */
-  --color-sidebar-hover: #334155; /* Hover sidebar nhạt, không tối đặc */
-  --color-text: #f1f5f9; /* Chữ trắng xám dịu, không chói */
-  --color-text-secondary: #9ca3af; /* Chữ phụ xám nhẹ */
-  --color-border: #475569; /* Viền tinh tế */
-  --color-surface: #2a3648; /* Card / Box có độ nổi nhẹ */
-
-  /* Button (outline style) */
+  /* Button (primary - outline style) */
   --btn-bg: transparent;
   --btn-text: #e2e8f0;
   --btn-border: #4b5563;
-  --btn-hover-bg: rgba(96, 165, 250, 0.1); /* Xanh sáng trong suốt */
-  --btn-hover-border: #60a5fa;
-  --btn-hover-text: #f8fafc;
+  --btn-hover-bg: rgba(96, 165, 250, 0.1);
 
-  /* sidebar */
-  --color-sidebar-active-bg: rgba(96, 165, 250, 0.15); /* xanh trong suốt nhẹ */
-  --color-sidebar-active-text: #60a5fa;
+  /* Button secondary */
+  --btn-secondary-bg: #1e3a5f;
+  --btn-secondary-text: #bfdbfe;
+  --btn-secondary-border: #3b82f6;
+  --btn-secondary-hover-bg: #2563eb;
+  --btn-secondary-hover-text: #f8fafc;
 
-  /* Stack*/
-  --stack-box-shadow:rgba(0, 0, 0, 0.15);
+  /* Error */
+  --color-error-bg: #3f1d1d;
+  --color-error-text: #fca5a5;
+  --color-error-border: #ef4444;
 }
 
 html,
@@ -70,11 +81,8 @@ body {
 }
 
 body {
-
   color: var(--color-text);
   background: var(--color-bg);
-  /* font-family: Arial, Helvetica, sans-serif; */
-  transition: background-color 0.5s, color 0.5s;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -84,66 +92,71 @@ body {
   box-sizing: border-box;
 }
 
-button {
-  background-color: var(--btn-bg);
-  color: var(--btn-text);
-  border: 1px solid var(--color-border);
-}
-
-button:hover {
-  opacity: 0.8;
-  background-color: var(--btn-hover-bg);
-}
-
-.secondary-text {
-  color: var(--color-text-secondary);
+button,
+.sidebar-sub-item,
+.secondary-button {
+  transition: all 0.25s ease-in-out;
 }
 
 svg.lucide {
   stroke-width: 0.75 !important;
 }
 
-/* modal section */
-.modal-wrap {
-  background-color: var(--color-sidebar-bg);
+/* Buttons */
+button {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: 1px solid var(--btn-border);
+}
+button:hover {
+  background-color: var(--btn-hover-bg);
 }
 
-/* section */
-.section-wrap {
-  background-color: var(--color-sidebar-bg);
-  width: 100%;
-  height: calc(100vh - 120px);
-  overflow: hidden;
-  overflow-y:scroll;
-  border-radius: 16px;
-  padding: 10
+.secondary-button {
+  background-color: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+  border: 1px solid var(--btn-secondary-border);
+}
+.secondary-button:hover {
+  background-color: var(--btn-secondary-hover-bg);
+  color: var(--btn-secondary-hover-text);
 }
 
 /* Sidebar */
 .sidebar-section {
   background: var(--color-sidebar-bg);
 }
-
-.sidebar-part:not(:first-child)::before {
-  content: "";
-  height: 1px;
-  width: 100%;
-  background-color: #616161;
-  margin-bottom: 10px;
-}
-
 .sidebar-sub-item:hover {
   background: var(--color-sidebar-hover);
-  color: var(--color-accent);
+  color: var(--color-sidebar-active-text);
 }
-
-.sidebar-part-title{
+.sidebar-part-title {
   color: var(--color-text-secondary);
 }
 
-/* Stack */
+/* Card */
 .stack-wrapper {
   background-color: var(--color-surface);
-  box-shadow: 0 2px 8px var(--stack-box-shadow);
+  border: 1px solid var(--border-color);
 }
 
+/* Texts */
+.secondary-text {
+  color: var(--color-text-secondary);
+}
+.main-text-title {
+  color: var(--color-text-title);
+  @apply font-medium;
+}
+
+/* Section */
+/* section */
+.section-wrap {
+  background-color: var(--color-sidebar-bg);
+  width: 100%;
+  height: calc(100vh - 120px);
+  overflow: hidden;
+  overflow-y: scroll;
+  border-radius: 16px;
+  padding: 10;
+}

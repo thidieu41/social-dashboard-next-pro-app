@@ -9,7 +9,7 @@ export const CardHeader = (props: CardHeaderProps) => {
   const mergeClass = twMerge("flex justify-between items-center", className);
   return (
     <div className={mergeClass}>
-      <p className="text-lg font-semibold! text-blue-500">{title}</p>
+      <p className="text-lg font-semibold! main-text-title">{title}</p>
       {children}
     </div>
   );

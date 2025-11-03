@@ -23,6 +23,7 @@ const FormRegister = () => {
       };
       const result = await handleRegisterForm(user);
       console.log(result);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error("❌ Register error:", error.message);
     }

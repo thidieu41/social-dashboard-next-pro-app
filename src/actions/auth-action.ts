@@ -34,7 +34,6 @@ export const handleLoginForm = async (formData: LoginType) => {
 };
 
 export const handleRegisterForm = async (formData: RegisterType) => {
-  console.log(formData, 'formData');
   const res = await fetch("http://localhost:3000/api/register", {
     method: "POST",
     headers: {

@@ -60,24 +60,21 @@ const ProfilePage = () => {
 
   return (
     <div className="section-wrap">
-      <div className="grid grid-cols-2 p-3 gap-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 p-3 gap-2">
         <Stack direction="col" spacing={3}>
           <Card>
             <Stack className="justify-between items-center" spacing={3}>
               <Stack spacing={3} className="items-center">
                 <Avatar width={80} height={80} />
                 <Stack direction="col">
-                  <p className="text-lg text-blue-500">Trubel Theresa</p>
+                  <p className="text-lg main-text-title">Trubel Theresa</p>
                   <p className="secondary-text text-base">
                     Team Software Developer
                   </p>
                   <p className="secondary-text text-base">Lead, US</p>
                 </Stack>
               </Stack>
-              <Button
-                className="text-blue-500! border-blue-500!"
-                onClick={handleSetOpen}
-              >
+              <Button className="secondary-button" onClick={handleSetOpen}>
                 <Pen />
                 Edit
               </Button>
@@ -86,7 +83,7 @@ const ProfilePage = () => {
 
           <Card className="mt-1">
             <CardHeader title="Personal Information" className="px-2">
-              <Button className="text-blue-500! border-blue-500!">
+              <Button className="secondary-button">
                 <Pen />
                 Edit
               </Button>
@@ -105,7 +102,7 @@ const ProfilePage = () => {
         <Stack>
           <Card className="mt-1">
             <CardHeader title="Address" className="px-3">
-              <Button className="text-blue-500! border-blue-500!">
+              <Button className="secondary-button">
                 <Pen />
                 Edit
               </Button>
@@ -121,8 +118,8 @@ const ProfilePage = () => {
           </Card>
         </Stack>
       </div>
-
-      <Modal isOpen={openModal} onChange={handleSetOpen} />
+      
+      <Modal title="" isOpen={openModal} onChange={handleSetOpen} />
     </div>
   );
 };
