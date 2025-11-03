@@ -1,6 +1,6 @@
 "use server";
 
-import { LoginType } from "@/types";
+import { LoginType, RegisterType } from "@/types";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -32,3 +32,21 @@ export const handleLoginForm = async (formData: LoginType) => {
 
   redirect("/dashboard")
 };
+
+export const handleRegisterForm = async (formData: RegisterType) => {
+  console.log(formData, 'formData');
+  const res = await fetch("http://localhost:3000/api/register", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(formData)
+  });
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    return { res };
+  }
+  return { success: true, data };
+}
