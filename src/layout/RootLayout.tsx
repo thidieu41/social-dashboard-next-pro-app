@@ -14,7 +14,7 @@ const RootLayoutCustome = ({ children }: { children: React.ReactNode }) => {
 
         <div className="col-span-4">
           <Header />
-          <div className="p-6">{children}</div>
+          <div className="px-6 ">{children}</div>
         </div>
       </div>
     </div>

@@ -9,6 +9,7 @@ type InputType = React.InputHTMLAttributes<HTMLInputElement> & {
 
 const Input = (props: InputType) => {
   const { className, label = "", name, starticon: icon } = props;
+
   const {
     register,
     formState: { errors },
@@ -20,6 +21,7 @@ const Input = (props: InputType) => {
     "w-full border border-gray-400 pl-10 py-3 rounded-lg focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-400",
     className
   );
+  console.log(mergedClass, 'mrege')
   return (
     <div className="flex flex-col gap-2">
       {label && (
@@ -33,7 +35,7 @@ const Input = (props: InputType) => {
             {icon}
           </span>
         )}
-        <input {...register(name)} className={`${mergedClass}`} {...props} />
+        <input {...register(name)}  {...props} className={`${mergedClass}`} />
       </div>
       {error && <p className="text-red-500 text-sm">{error}</p>}
     </div>

@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic"
 
 const RootLayoutCustome = dynamic(() => import("@/layout/RootLayout"))
+const Breadcrumb = dynamic(()=> import("@/components/breadcrumb"))
 
 
 const DashboardLayout = ({ children}: {
@@ -8,6 +9,7 @@ const DashboardLayout = ({ children}: {
 }) =>{
     return(
         <RootLayoutCustome>
+            <Breadcrumb/>
             {children}
         </RootLayoutCustome>
     )

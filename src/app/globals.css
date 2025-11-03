@@ -1,21 +1,66 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --sidebarBg: #f3f4f6;
-  --btn-bg: #e5e7eb;
-  --btn-text: #111827;
-  --border-color: #cccccc;
+  /* Border */
+  --border-color: #d1d5db;
+
+  /* Base colors */
+  --color-primary: #1e293b; /* Xanh than nhẹ, trung tính */
+  --color-accent: #3b82f6; /* Xanh nhấn nhẹ */
+  --color-bg: #f8fafc; /* Nền sáng dịu */
+  --color-sidebar-bg: #f3f4f6; /* Sidebar xám sáng hơn nền chút */
+  --color-sidebar-hover: #e2e8f0; /* Hover sidebar nhẹ nhàng */
+  --color-text: #1e293b; /* Chữ chính */
+  --color-text-secondary: #6b7280; /* Chữ phụ */
+  --color-border: #e5e7eb; /* Viền nhạt */
+  --color-surface: #ffffff; /* Bề mặt card / box */
+
+  /* Button (outline style) */
+  --btn-bg: transparent;
+  --btn-text: #1e293b;
+  --btn-border: #cbd5e1;
+  --btn-hover-bg: rgba(59, 130, 246, 0.08); /* xanh nhẹ, trong suốt */
+  --btn-hover-border: #94a3b8;
+  --btn-hover-text: #1e293b;
+
+  /* sibdebar */
+  --color-sidebar-active-bg: rgba(59, 130, 246, 0.12); /* xanh nhẹ */
+  --color-sidebar-active-text: #2563eb; /* xanh dương nhấn */
+
+  /* Stack*/
+  --stack-box-shadow:rgba(0, 0, 0, 0.05)
+
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --sidebarBg: #111827;
-  --btn-bg: #171717;
-  --btn-text: #ffffff;
-  --border-color: #444444;
+  /* Border */
+  --border-color: #3f4a59;
+
+  /* Base colors */
+  --color-primary: #334155; /* Xanh than trung bình (không quá tối) */
+  --color-accent: #60a5fa; /* Xanh sáng hơn chút để tạo điểm nhấn */
+  --color-bg: #1f2937; /* Nền xanh than nhạt (dễ nhìn) */
+  --color-sidebar-bg: #273445; /* Sidebar xám xanh nhẹ hơn #111827 */
+  --color-sidebar-hover: #334155; /* Hover sidebar nhạt, không tối đặc */
+  --color-text: #f1f5f9; /* Chữ trắng xám dịu, không chói */
+  --color-text-secondary: #9ca3af; /* Chữ phụ xám nhẹ */
+  --color-border: #475569; /* Viền tinh tế */
+  --color-surface: #2a3648; /* Card / Box có độ nổi nhẹ */
+
+  /* Button (outline style) */
+  --btn-bg: transparent;
+  --btn-text: #e2e8f0;
+  --btn-border: #4b5563;
+  --btn-hover-bg: rgba(96, 165, 250, 0.1); /* Xanh sáng trong suốt */
+  --btn-hover-border: #60a5fa;
+  --btn-hover-text: #f8fafc;
+
+  /* sidebar */
+  --color-sidebar-active-bg: rgba(96, 165, 250, 0.15); /* xanh trong suốt nhẹ */
+  --color-sidebar-active-text: #60a5fa;
+
+  /* Stack*/
+  --stack-box-shadow:rgba(0, 0, 0, 0.15);
 }
 
 html,
@@ -25,8 +70,9 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+
+  color: var(--color-text);
+  background: var(--color-bg);
   /* font-family: Arial, Helvetica, sans-serif; */
   transition: background-color 0.5s, color 0.5s;
   -webkit-font-smoothing: antialiased;
@@ -34,20 +80,70 @@ body {
 }
 
 * {
+  @apply font-light;
   box-sizing: border-box;
 }
 
 button {
   background-color: var(--btn-bg);
   color: var(--btn-text);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--color-border);
 }
 
 button:hover {
   opacity: 0.8;
+  background-color: var(--btn-hover-bg);
+}
+
+.secondary-text {
+  color: var(--color-text-secondary);
+}
+
+svg.lucide {
+  stroke-width: 0.75 !important;
+}
+
+/* modal section */
+.modal-wrap {
+  background-color: var(--color-sidebar-bg);
+}
+
+/* section */
+.section-wrap {
+  background-color: var(--color-sidebar-bg);
+  width: 100%;
+  height: calc(100vh - 120px);
+  overflow: hidden;
+  overflow-y:scroll;
+  border-radius: 16px;
+  padding: 10
 }
 
 /* Sidebar */
 .sidebar-section {
-  background: var(--sidebarBg);
+  background: var(--color-sidebar-bg);
 }
+
+.sidebar-part:not(:first-child)::before {
+  content: "";
+  height: 1px;
+  width: 100%;
+  background-color: #616161;
+  margin-bottom: 10px;
+}
+
+.sidebar-sub-item:hover {
+  background: var(--color-sidebar-hover);
+  color: var(--color-accent);
+}
+
+.sidebar-part-title{
+  color: var(--color-text-secondary);
+}
+
+/* Stack */
+.stack-wrapper {
+  background-color: var(--color-surface);
+  box-shadow: 0 2px 8px var(--stack-box-shadow);
+}
+
