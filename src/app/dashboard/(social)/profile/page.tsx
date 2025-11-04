@@ -8,75 +8,9 @@ import Stack from "@/components-system/Stack/Stack";
 import { Pen } from "lucide-react";
 import { useState } from "react";
 import ModalEditProfile from "./ModalEditProfile";
+import { address, information, profile } from "./schema";
 
-const information = [
-  {
-    labelName: "First Name",
-    content: "Trubel",
-    keyContent: "first-name",
-  },
-  {
-    labelName: "Last Name",
-    content: "Theresa",
-    keyContent: "last-name",
-  },
-  {
-    labelName: "Email Adrress",
-    content: "trubeltheresa@gmail.dev",
-    keyContent: "email",
-  },
-  {
-    labelName: "Phone Number",
-    content: "0367762327",
-    keyContent: "phone",
-  },
-  {
-    labelName: "Bio",
-    content: "Junior Font-End Developer",
-    keyContent: "bio",
-  },
-];
 
-const address = [
-  {
-    labelName: "Country",
-    content: "Trubel",
-    keyContent: "country",
-  },
-  {
-    labelName: "City/State",
-    content: "Theresa",
-    keyContent: "city",
-  },
-  {
-    labelName: "Postal Code",
-    content: "trubeltheresa@gmail.dev",
-    keyContent: "code",
-  },
-  {
-    labelName: "TAX ID",
-    content: "0367762327",
-    keyContent: "tax",
-  },
-];
-
-const profile = [
-  {
-    labelName: "Name",
-    content: "Trubel Theresa",
-    keyContent: "name",
-  },
-  {
-    labelName: "Position",
-    content: "Team Software Developer",
-    keyContent: "postion",
-  },
-  {
-    labelName: "Head quarters",
-    content: "Lead, US",
-    keyContent: "headquarters",
-  },
-];
 
 const ProfilePage = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -113,9 +47,9 @@ const ProfilePage = () => {
           <Card>
             <Stack className="justify-between items-center" spacing={3}>
               <Stack spacing={3} className="items-center">
-                <Avatar width={80} height={80} />
+                <Avatar width={80} height={80} src="/images/avatar.jpg" />
                 <Stack direction="col">
-                  <p className="text-lg main-text-title">Trubel Theresa</p>
+                  <p className="text-lg">Trubel Theresa</p>
                   <p className="secondary-text text-base">
                     Team Software Developer
                   </p>

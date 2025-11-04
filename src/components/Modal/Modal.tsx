@@ -55,7 +55,7 @@ export default function Modal(props: ModalProps) {
             className="modal-wrap fixed top-0 right-0 h-full md:w-1/3 w-3/4 shadow-2xl z-50 flex flex-col "
           >
             <div className="flex justify-between items-center p-4 border-b border-color">
-              <h2 className="text-lg font-semibold">{title}</h2>
+              <h2 className="text-lg font-semibold main-text-title">{title}</h2>
               <Button onClick={handleSetModalToogle}>
                 <X className="w-5 h-5" />
               </Button>

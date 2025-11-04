@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { twMerge } from "tailwind-merge";
 
 type AvatarProps = React.InputHTMLAttributes<HTMLInputElement> & {
   height?: number;
@@ -6,18 +7,16 @@ type AvatarProps = React.InputHTMLAttributes<HTMLInputElement> & {
 };
 
 const Avatar = (props: AvatarProps) => {
-  const { width = 30, height = 30 } = props;
+  const { width = 30, height = 30, src = "/images/avatar.jpg" } = props;
+  const mergeClass = twMerge("rounded-full object-cover", props.className);
   return (
-    // <input {...props}>
-    //     <Image src={"/avatar.jpg"} alt="" width={60} height={60} />
-    // </input>
     <div className="rounded-full">
       <Image
-        src={"/images/avatar.jpg"}
-        alt=""
+        src={src}
+        alt="img-avatar"
         width={width}
         height={height}
-        className="rounded-full object-cover"
+        className={mergeClass}
       />
     </div>
   );
