@@ -5,6 +5,7 @@ import { Button } from "@/components-system/Button/Button";
 import Card from "@/components-system/Card/Card";
 import { CardHeader } from "@/components-system/Card/CardHeader";
 import Stack from "@/components-system/Stack/Stack";
+// import { useToast } from "@/components-system/toast/ToastProvider";
 import Modal from "@/components/Modal/Modal";
 import { Pen } from "lucide-react";
 import { useState } from "react";
@@ -54,8 +55,11 @@ const address = [
 const ProfilePage = () => {
   const [openModal, setOpenModal] = useState(false);
 
+  // const toast = useToast();
+
   const handleSetOpen = () => {
     setOpenModal(!openModal);
+    // toast("Show Toast", "error")
   };
 
   return (

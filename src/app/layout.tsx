@@ -2,15 +2,15 @@ import dynamic from "next/dynamic";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
+import ToastProvider from "@/components-system/toast/ToastProvider";
 
-const StoreProvider = dynamic(()=> import('../providers/StoreProvider'));
-const ThemeProvider = dynamic(()=> import('@/providers/ThemeProvider'));
-
+const StoreProvider = dynamic(() => import("../providers/StoreProvider"));
+const ThemeProvider = dynamic(() => import("@/providers/ThemeProvider"));
 
 const roboto = Roboto({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'], // chọn các độ đậm bạn cần
-  variable: '--font-roboto', // optional, dùng cho Tailwind
+  subsets: ["latin"],
+  weight: ["400", "500", "700"], // chọn các độ đậm bạn cần
+  variable: "--font-roboto", // optional, dùng cho Tailwind
 });
 
 export const metadata: Metadata = {
@@ -27,9 +27,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${roboto.variable}`}>
         {/* <StoreProvider> */}
-          <ThemeProvider>
-            {children}
-          </ThemeProvider>
+        <ToastProvider>
+          <ThemeProvider>{children}</ThemeProvider>
+        </ToastProvider>
+
         {/* </StoreProvider> */}
       </body>
     </html>
