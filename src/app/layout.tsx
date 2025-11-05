@@ -2,10 +2,16 @@ import dynamic from "next/dynamic";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
-import ToastProvider from "@/components-system/toast/ToastProvider";
+import ProgressBar from "@/components/ProgressBar/ProgressBar";
+import ProgressBarProvider from "@/components/ProgressBar/ProgressProvider";
+import ProgressWatcher from "@/components/ProgressBar/ProgressBarWatcher";
 
 const StoreProvider = dynamic(() => import("../providers/StoreProvider"));
 const ThemeProvider = dynamic(() => import("@/providers/ThemeProvider"));
+const ToastProvider = dynamic(
+  () => import("@/components-system/toast/ToastProvider")
+);
+// import ToastProvider from "@/components-system/toast/ToastProvider";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -27,9 +33,13 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${roboto.variable}`}>
         {/* <StoreProvider> */}
-        <ToastProvider>
-          <ThemeProvider>{children}</ThemeProvider>
-        </ToastProvider>
+        <ProgressBarProvider>
+           <ProgressBar/>
+           <ProgressWatcher/>
+          <ToastProvider>
+            <ThemeProvider>{children}</ThemeProvider>
+          </ToastProvider>
+        </ProgressBarProvider>
 
         {/* </StoreProvider> */}
       </body>

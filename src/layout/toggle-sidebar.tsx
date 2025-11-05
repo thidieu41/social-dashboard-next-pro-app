@@ -7,7 +7,7 @@ import { Menu } from "lucide-react";
 const ToggleSidebar = () => {
     const { toggleSidebar } = useSidebar();
     return(
-        <Button className="border-none! md:hidden" onClick={toggleSidebar}>
+        <Button className="border-none! lg:hidden" onClick={toggleSidebar}>
           <Menu />
         </Button>
     )
