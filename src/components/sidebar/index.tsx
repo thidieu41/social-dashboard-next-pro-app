@@ -16,6 +16,7 @@ import { useSidebar } from "./SidebarProvider";
 import { redirect } from "next/navigation";
 import { Button } from "@/components-system/Button/Button";
 import { AnimatePresence, motion } from "framer-motion";
+import { useProgressBar } from "../ProgressBar/ProgressProvider";
 
 const sidebarList = [
   {
@@ -31,7 +32,7 @@ const sidebarList = [
       {
         id: "sub-1-2",
         url: "/dashboard/posts",
-        name: "Post",
+        name: "Posts",
         icon: <MessageCircleHeart />,
       },
       {
@@ -88,12 +89,17 @@ const sidebarList = [
 
 const Sidebar = () => {
   const { isOpen } = useSidebar();
+  const { start } = useProgressBar();
 
   const handleLogout = async () => {
     // const cookie = await cookies();
     // cookie.set("nextToken", "");
 
     redirect("/login");
+  };
+
+  const handleNavigate = () => {
+    start();
   };
 
   return (
@@ -116,6 +122,7 @@ const Sidebar = () => {
                       <Link
                         href={subItem.url}
                         className="sidebar-sub-item flex flex-row gap-2 w-full py-2 px-3 rounded-lg cursor-pointer"
+                        onClick={handleNavigate}
                       >
                         <span>{subItem.icon}</span>
                         {subItem.name}
