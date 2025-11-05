@@ -32,9 +32,10 @@
   --btn-secondary-hover-text: #1e3a8a;
 
   /* Error color */
-  --color-error-bg: #fef2f2;
-  --color-error-text: #b91c1c;
-  --color-error-border: #fca5a5;
+  --color-error-bg: #fff5f5;
+  --color-error-text: #c2410c;
+  --color-error-border: #fecaca;
+  --color-error-hover-bg: #ffe4e6;
 }
 
 .dark {
@@ -69,9 +70,10 @@
   --btn-secondary-hover-text: #f8fafc;
 
   /* Error */
-  --color-error-bg: #3f1d1d;
-  --color-error-text: #fca5a5;
-  --color-error-border: #ef4444;
+  --color-error-bg: #fff5f5;
+  --color-error-text: #c2410c;
+  --color-error-border: #fecaca;
+  --color-error-hover-bg: #ffe4e6;
 }
 
 html,
@@ -122,6 +124,16 @@ button:hover {
   color: var(--btn-secondary-hover-text);
 }
 
+.error-button {
+  background-color: var(--color-error-bg);
+  color: var(--color-error-text);
+  border: var(--color-error-border);
+}
+
+.error-button:hover {
+  background-color: var(--color-error-hover-bg);
+}
+
 /* Sidebar */
 .sidebar-section {
   background: var(--color-sidebar-bg);
@@ -149,7 +161,6 @@ button:hover {
   @apply font-medium;
 }
 
-/* Section */
 /* section */
 .section-wrap {
   background-color: var(--color-sidebar-bg);
@@ -159,4 +170,14 @@ button:hover {
   overflow-y: scroll;
   border-radius: 16px;
   padding: 10;
+}
+
+/* modal */
+.modal-wrap {
+  background-color: var(--color-surface);
+}
+
+/* boder-color */
+.border-color {
+  border-color: var(--btn-border);
 }

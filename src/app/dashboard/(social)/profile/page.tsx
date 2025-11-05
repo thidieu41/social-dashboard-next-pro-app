@@ -5,61 +5,39 @@ import { Button } from "@/components-system/Button/Button";
 import Card from "@/components-system/Card/Card";
 import { CardHeader } from "@/components-system/Card/CardHeader";
 import Stack from "@/components-system/Stack/Stack";
-// import { useToast } from "@/components-system/toast/ToastProvider";
-import Modal from "@/components/Modal/Modal";
 import { Pen } from "lucide-react";
 import { useState } from "react";
+import ModalEditProfile from "./ModalEditProfile";
+import { address, information, profile } from "./schema";
 
-const information = [
-  {
-    labelName: "First Name",
-    content: "Trubel",
-  },
-  {
-    labelName: "Last Name",
-    content: "Theresa",
-  },
-  {
-    labelName: "Email Adrress",
-    content: "trubeltheresa@gmail.dev",
-  },
-  {
-    labelName: "Phone Number",
-    content: "0367762327",
-  },
-  {
-    labelName: "Bio",
-    content: "Junior Font-End Developer",
-  },
-];
 
-const address = [
-  {
-    labelName: "Country",
-    content: "Trubel",
-  },
-  {
-    labelName: "City/State",
-    content: "Theresa",
-  },
-  {
-    labelName: "Postal Code",
-    content: "trubeltheresa@gmail.dev",
-  },
-  {
-    labelName: "TAX ID",
-    content: "0367762327",
-  },
-];
 
 const ProfilePage = () => {
   const [openModal, setOpenModal] = useState(false);
+  const [keyModal, setKeyModal] = useState("");
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [data, setData] = useState<Record<string, any>[]>([]);
 
-  // const toast = useToast();
-
-  const handleSetOpen = () => {
-    setOpenModal(!openModal);
-    // toast("Show Toast", "error")
+  const handleSetData = (modalKey: string) => {
+    switch (modalKey) {
+      case "modal-1":
+        setData(profile);
+        break;
+      case "modal-2":
+        setData(information);
+        break;
+      case "modal-3":
+        setData(address);
+        break;
+      default:
+        setData([]);
+        break;
+    }
+  };
+  const handleSetOpen = (open: boolean, modalKey?: string) => {
+    setOpenModal(open);
+    setKeyModal(modalKey || "");
+    handleSetData(modalKey || "");
   };
 
   return (
@@ -69,16 +47,19 @@ const ProfilePage = () => {
           <Card>
             <Stack className="justify-between items-center" spacing={3}>
               <Stack spacing={3} className="items-center">
-                <Avatar width={80} height={80} />
+                <Avatar width={80} height={80} src="/images/avatar.jpg" />
                 <Stack direction="col">
-                  <p className="text-lg main-text-title">Trubel Theresa</p>
+                  <p className="text-lg">Trubel Theresa</p>
                   <p className="secondary-text text-base">
                     Team Software Developer
                   </p>
                   <p className="secondary-text text-base">Lead, US</p>
                 </Stack>
               </Stack>
-              <Button className="secondary-button" onClick={handleSetOpen}>
+              <Button
+                className="secondary-button"
+                onClick={() => handleSetOpen(true, "modal-1")}
+              >
                 <Pen />
                 Edit
               </Button>
@@ -87,7 +68,10 @@ const ProfilePage = () => {
 
           <Card className="mt-1">
             <CardHeader title="Personal Information" className="px-2">
-              <Button className="secondary-button">
+              <Button
+                className="secondary-button"
+                onClick={() => handleSetOpen(true, "modal-2")}
+              >
                 <Pen />
                 Edit
               </Button>
@@ -106,7 +90,10 @@ const ProfilePage = () => {
         <Stack>
           <Card className="mt-1">
             <CardHeader title="Address" className="px-3">
-              <Button className="secondary-button">
+              <Button
+                className="secondary-button"
+                onClick={() => handleSetOpen(true, "modal-3")}
+              >
                 <Pen />
                 Edit
               </Button>
@@ -122,8 +109,13 @@ const ProfilePage = () => {
           </Card>
         </Stack>
       </div>
-      
-      <Modal title="" isOpen={openModal} onChange={handleSetOpen} />
+
+      <ModalEditProfile
+        modalKey={keyModal}
+        isOpen={openModal}
+        toogleModal={handleSetOpen}
+        data={data}
+      />
     </div>
   );
 };
