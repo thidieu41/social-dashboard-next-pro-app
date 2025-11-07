@@ -32,11 +32,16 @@ const Input = (props: InputType) => {
       )}
       <div className="relative">
         {icon && (
-          <span className="absolute left-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-5">
+          <span className="absolute left-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-5 text-gray-500">
             {icon}
           </span>
         )}
-        <input {...register(name)} {...props} className={`${mergedClass}`} />
+        <input
+          id={name}
+          {...register(name)}
+          {...props}
+          className={`${mergedClass}`}
+        />
       </div>
       {error && <p className="text-red-500 text-sm">{error}</p>}
     </div>

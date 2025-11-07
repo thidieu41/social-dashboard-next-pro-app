@@ -3,7 +3,7 @@ import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
   // const token = request.cookies.get("nextToken")?.value;
-  const token = true;
+  const token = false;
   const pathname = request.nextUrl.pathname;
 
   // ✅ Cho phép /login truy cập mà không bị redirect vòng lặp
