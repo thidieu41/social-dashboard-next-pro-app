@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import Avatar from "@/components-system/Avatar/Avatar";
-import { useRef, useState } from "react";
+import Avatar from '@/components-system/Avatar/Avatar';
+import { useRef, useState } from 'react';
 
 export const UploadAvatar = () => {
   const fileRef = useRef<HTMLInputElement | null>(null);
-  const [preview, setPreview] = useState("/images/avatar.jpg");
+  const [preview, setPreview] = useState('/images/avatar.jpg');
 
   const hanldeClickUploadOnImgage = () => {
     fileRef.current?.click();

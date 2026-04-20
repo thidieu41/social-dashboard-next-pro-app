@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { Button } from "@/components-system/Button/Button";
-import Input from "@/components-system/Input/Input";
-import { Key, Mail } from "lucide-react";
-import Link from "next/link";
-import { FormProvider, useForm } from "react-hook-form";
-import { LoginSchema } from "./schema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { LoginType } from "@/types";
-import { handleLoginForm } from "@/actions/auth-action";
+import { Button } from '@/components-system/Button/Button';
+import Input from '@/components-system/Input/Input';
+import { Key, Mail } from 'lucide-react';
+import Link from 'next/link';
+import { FormProvider, useForm } from 'react-hook-form';
+import { LoginSchema } from './schema';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { LoginType } from '@/types';
+import { handleLoginForm } from '@/actions/auth-action';
 
 const FormLogin = () => {
   const methods = useForm<LoginType>({
@@ -17,7 +17,7 @@ const FormLogin = () => {
 
   const loginSubmit = async (data: LoginType) => {
     try {
-       await handleLoginForm(data);
+      await handleLoginForm(data);
     } catch {}
   };
 
@@ -56,7 +56,7 @@ const FormLogin = () => {
         </div>
         <div className="mt-3 text-sm text-center">
           <span>{`Don't have an account?`}</span>
-          <Link href={"/register"} className="text-blue-400 ml-1 underline">
+          <Link href={'/register'} className="text-blue-400 ml-1 underline">
             Sign up
           </Link>
         </div>

@@ -1,5 +1,5 @@
-import { useFormContext } from "react-hook-form";
-import { twMerge } from "tailwind-merge";
+import { useFormContext } from 'react-hook-form';
+import { twMerge } from 'tailwind-merge';
 
 type InputType = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
@@ -8,7 +8,7 @@ type InputType = React.InputHTMLAttributes<HTMLInputElement> & {
 };
 
 const Input = (props: InputType) => {
-  const { className, label = "", name, starticon: icon } = props;
+  const { className, label = '', name, starticon: icon } = props;
 
   const {
     register,
@@ -19,9 +19,9 @@ const Input = (props: InputType) => {
 
   const mergedClass = twMerge(
     `w-full border border-gray-400  py-3 rounded-lg focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-400 ${
-      !!icon ? "pl-10" : "pl-5"
+      !!icon ? 'pl-10' : 'pl-5'
     }`,
-    className
+    className,
   );
   return (
     <div className="flex flex-col gap-2">

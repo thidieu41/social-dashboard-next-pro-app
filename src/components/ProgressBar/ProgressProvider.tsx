@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from 'react';
 
 type ContextProps = {
   start: () => void;
@@ -14,11 +14,11 @@ const ProgressBarProvider = ({ children }: { children: React.ReactNode }) => {
   const [loading, setIsLoading] = useState(false);
 
   const start = () => {
-    setIsLoading(true)
+    setIsLoading(true);
   };
-  
+
   const done = () => {
-    setIsLoading(false)
+    setIsLoading(false);
   };
   return (
     <ProgressBarContext.Provider value={{ start, done, loading }}>
@@ -31,6 +31,6 @@ export default ProgressBarProvider;
 
 export const useProgressBar = () => {
   const ctx = useContext(ProgressBarContext);
-  if (!ctx) throw new Error("sub component within ProgressBar Context");
+  if (!ctx) throw new Error('sub component within ProgressBar Context');
   return ctx;
 };

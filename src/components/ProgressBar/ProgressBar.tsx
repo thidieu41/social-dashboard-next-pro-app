@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { AnimatePresence, motion } from "framer-motion";
-import { useProgressBar } from "./ProgressProvider";
+import { AnimatePresence, motion } from 'framer-motion';
+import { useProgressBar } from './ProgressProvider';
 
 const ProgressBar = () => {
   const { loading } = useProgressBar();
@@ -18,10 +18,10 @@ const ProgressBar = () => {
       <AnimatePresence>
         {loading && (
           <motion.div
-            initial={{ y: "-100%" }}
+            initial={{ y: '-100%' }}
             animate={{ y: 0 }}
-            exit={{ y: "-100%" }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            exit={{ y: '-100%' }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="fixed top-2 left-1/2 z-3"
           >
             <div className="stack-wrapper bg-white w-[300px] border rounded-lg p-2 py-3">

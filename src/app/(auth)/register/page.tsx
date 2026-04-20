@@ -1,4 +1,4 @@
-import FormRegister from "./register-form";
+import FormRegister from './register-form';
 
 const Register = () => {
   return (

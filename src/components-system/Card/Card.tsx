@@ -1,4 +1,4 @@
-import { twMerge } from "tailwind-merge";
+import { twMerge } from 'tailwind-merge';
 
 type CardProps = React.HTMLAttributes<HTMLDivElement> & {};
 

@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { FormProvider, useForm } from "react-hook-form";
-import { RegisterSchema } from "./schema";
-import { RegisterType } from "@/types";
-import Input from "@/components-system/Input/Input";
-import { Key, Mail, User } from "lucide-react";
-import { Button } from "@/components-system/Button/Button";
-import Link from "next/link";
-import { handleRegisterForm } from "@/actions/auth-action";
+import { zodResolver } from '@hookform/resolvers/zod';
+import { FormProvider, useForm } from 'react-hook-form';
+import { RegisterSchema } from './schema';
+import { RegisterType } from '@/types';
+import Input from '@/components-system/Input/Input';
+import { Key, Mail, User } from 'lucide-react';
+import { Button } from '@/components-system/Button/Button';
+import Link from 'next/link';
+import { handleRegisterForm } from '@/actions/auth-action';
 
 const FormRegister = () => {
   const methods = useForm<RegisterType>({
@@ -23,9 +23,9 @@ const FormRegister = () => {
       };
       const result = await handleRegisterForm(user);
       console.log(result);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      console.error("❌ Register error:", error.message);
+      console.error('❌ Register error:', error.message);
     }
   };
 
@@ -61,8 +61,8 @@ const FormRegister = () => {
           </Button>
         </div>
         <div className="mt-3">
-          <span className="text-gray-500">{"Already have an account?"}</span>
-          <Link href={"/login"} className="text-blue-400 ml-1 underline">
+          <span className="text-gray-500">{'Already have an account?'}</span>
+          <Link href={'/login'} className="text-blue-400 ml-1 underline">
             Register
           </Link>
         </div>

@@ -1,32 +1,30 @@
-"use client";
+'use client';
 
-import Avatar from "@/components-system/Avatar/Avatar";
-import { Button } from "@/components-system/Button/Button";
-import Card from "@/components-system/Card/Card";
-import { CardHeader } from "@/components-system/Card/CardHeader";
-import Stack from "@/components-system/Stack/Stack";
-import { Pen } from "lucide-react";
-import { useState } from "react";
-import ModalEditProfile from "./ModalEditProfile";
-import { address, information, profile } from "./schema";
-
-
+import Avatar from '@/components-system/Avatar/Avatar';
+import { Button } from '@/components-system/Button/Button';
+import Card from '@/components-system/Card/Card';
+import { CardHeader } from '@/components-system/Card/CardHeader';
+import Stack from '@/components-system/Stack/Stack';
+import { Pen } from 'lucide-react';
+import { useState } from 'react';
+import ModalEditProfile from './ModalEditProfile';
+import { address, information, profile } from './schema';
 
 const ProfilePage = () => {
   const [openModal, setOpenModal] = useState(false);
-  const [keyModal, setKeyModal] = useState("");
+  const [keyModal, setKeyModal] = useState('');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [data, setData] = useState<Record<string, any>[]>([]);
 
   const handleSetData = (modalKey: string) => {
     switch (modalKey) {
-      case "modal-1":
+      case 'modal-1':
         setData(profile);
         break;
-      case "modal-2":
+      case 'modal-2':
         setData(information);
         break;
-      case "modal-3":
+      case 'modal-3':
         setData(address);
         break;
       default:
@@ -36,8 +34,8 @@ const ProfilePage = () => {
   };
   const handleSetOpen = (open: boolean, modalKey?: string) => {
     setOpenModal(open);
-    setKeyModal(modalKey || "");
-    handleSetData(modalKey || "");
+    setKeyModal(modalKey || '');
+    handleSetData(modalKey || '');
   };
 
   return (
@@ -58,7 +56,7 @@ const ProfilePage = () => {
               </Stack>
               <Button
                 className="secondary-button"
-                onClick={() => handleSetOpen(true, "modal-1")}
+                onClick={() => handleSetOpen(true, 'modal-1')}
               >
                 <Pen />
                 Edit
@@ -70,7 +68,7 @@ const ProfilePage = () => {
             <CardHeader title="Personal Information" className="px-2">
               <Button
                 className="secondary-button"
-                onClick={() => handleSetOpen(true, "modal-2")}
+                onClick={() => handleSetOpen(true, 'modal-2')}
               >
                 <Pen />
                 Edit
@@ -92,7 +90,7 @@ const ProfilePage = () => {
             <CardHeader title="Address" className="px-3">
               <Button
                 className="secondary-button"
-                onClick={() => handleSetOpen(true, "modal-3")}
+                onClick={() => handleSetOpen(true, 'modal-3')}
               >
                 <Pen />
                 Edit
