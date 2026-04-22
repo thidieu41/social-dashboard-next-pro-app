@@ -31,6 +31,12 @@
   --btn-secondary-hover-bg: #dbeafe;
   --btn-secondary-hover-text: #1e3a8a;
 
+  /* Button primary */
+  --btn-primary-bg: #2563eb;
+  --btn-primary-text: #f8fafc;
+  --btn-primary-border: #1d4ed8;
+  --btn-primary-hover-bg: #1d4ed8;
+
   /* Error color */
   --color-error-bg: #fff5f5;
   --color-error-text: #c2410c;
@@ -68,6 +74,12 @@
   --btn-secondary-border: #3b82f6;
   --btn-secondary-hover-bg: #2563eb;
   --btn-secondary-hover-text: #f8fafc;
+
+  /* Button primary */
+  --btn-primary-bg: #3b82f6;
+  --btn-primary-text: #f8fafc;
+  --btn-primary-border: #2563eb;
+  --btn-primary-hover-bg: #2563eb;
 
   /* Error */
   --color-error-bg: #fff5f5;
@@ -134,6 +146,15 @@ button:hover {
   background-color: var(--color-error-hover-bg);
 }
 
+.primary-button {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: 1px solid var(--btn-primary-border);
+}
+.primary-button:hover {
+  background-color: var(--btn-primary-hover-bg);
+}
+
 /* Sidebar */
 .sidebar-section {
   background: var(--color-sidebar-bg);
@@ -169,7 +190,7 @@ button:hover {
   overflow: hidden;
   overflow-y: scroll;
   border-radius: 16px;
-  padding: 10;
+  padding: 10px;
 }
 
 /* modal */

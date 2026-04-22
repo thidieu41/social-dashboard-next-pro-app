@@ -30,7 +30,6 @@ const FormLogin = () => {
             placeholder="Your email address..."
             starticon={<Mail />}
             name="email"
-            className="text-gray-600"
           />
 
           <Input
@@ -38,17 +37,16 @@ const FormLogin = () => {
             placeholder="Your passowrd..."
             starticon={<Key />}
             name="password"
-            className="text-gray-600"
           />
 
           <div className="flex gap-2">
             <input type="checkbox" />
-            <span className="text-gray-700 text-sm">Remeber me!</span>
+            <span className="secondary-text text-sm">Remeber me!</span>
           </div>
         </div>
         <div className="mt-5">
           <Button
-            className="rounded-lg py-3! bg-black! font-bold text-white! w-full"
+            className="primary-button rounded-lg py-3! font-bold w-full"
             type="submit"
           >
             SUBMIT
