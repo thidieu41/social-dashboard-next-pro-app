@@ -54,14 +54,14 @@ const FormRegister = () => {
         </div>
         <div className="mt-5">
           <Button
-            className="rounded-lg py-3! bg-black! font-bold text-white! w-full"
+            className="primary-button rounded-lg py-3! font-bold w-full"
             type="submit"
           >
             SUBMIT
           </Button>
         </div>
         <div className="mt-3">
-          <span className="text-gray-500">{'Already have an account?'}</span>
+          <span className="secondary-text">{'Already have an account?'}</span>
           <Link href={'/login'} className="text-blue-400 ml-1 underline">
             Register
           </Link>

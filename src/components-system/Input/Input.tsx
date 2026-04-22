@@ -18,7 +18,7 @@ const Input = (props: InputType) => {
   const error = errors?.[name]?.message as string | undefined;
 
   const mergedClass = twMerge(
-    `w-full border border-gray-400  py-3 rounded-lg focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-400 ${
+    `w-full border border-[var(--border-color)] py-3 rounded-lg bg-[var(--color-surface)] text-[var(--color-text)] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-400 ${
       !!icon ? 'pl-10' : 'pl-5'
     }`,
     className,
@@ -32,7 +32,7 @@ const Input = (props: InputType) => {
       )}
       <div className="relative">
         {icon && (
-          <span className="absolute left-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-5 text-gray-500">
+          <span className="absolute left-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-5 text-[var(--color-text-secondary)]">
             {icon}
           </span>
         )}

@@ -15,7 +15,7 @@ export default function ThemeToggle() {
   return (
     <Button
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className={`relative inline-flex h-10 w-23! items-center rounded-full p-1 transition-colors duration-300 border-none`}
+      className={`relative inline-flex h-10 w-23! items-center rounded-full p-1 transition-colors duration-300 border-none bg-gray-200 dark:bg-gray-600`}
     >
       {/* Nút tròn */}
       <span
