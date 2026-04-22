@@ -1,12 +1,11 @@
 // "use client"
-import dynamic from "next/dynamic";
-import { SidebarProvider } from "@/components/sidebar/SidebarProvider";
+import dynamic from 'next/dynamic';
+import { SidebarProvider } from '@/components/sidebar/SidebarProvider';
 
-const Header = dynamic(() => import("./Header"));
-const Sidebar = dynamic(() => import("@/components/sidebar"));
+const Header = dynamic(() => import('./Header'));
+const Sidebar = dynamic(() => import('@/components/sidebar'));
 
 const RootLayoutCustome = ({ children }: { children: React.ReactNode }) => {
-
   return (
     <SidebarProvider>
       <div className={`grid grid-cols-1 lg:grid-cols-5`}>

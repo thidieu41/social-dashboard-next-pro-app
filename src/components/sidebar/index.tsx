@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   Album,
@@ -10,77 +10,77 @@ import {
   MessageCircleHeart,
   ShieldUser,
   UsersRound,
-} from "lucide-react";
-import Link from "next/link";
-import { useSidebar } from "./SidebarProvider";
-import { redirect } from "next/navigation";
-import { Button } from "@/components-system/Button/Button";
-import { AnimatePresence, motion } from "framer-motion";
-import { useProgressBar } from "../ProgressBar/ProgressProvider";
+} from 'lucide-react';
+import Link from 'next/link';
+import { useSidebar } from './SidebarProvider';
+import { redirect } from 'next/navigation';
+import { Button } from '@/components-system/Button/Button';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useProgressBar } from '../ProgressBar/ProgressProvider';
 
 const sidebarList = [
   {
-    part: "Social",
-    id: "part-1",
+    part: 'Social',
+    id: 'part-1',
     sub: [
       {
-        id: "sub-1-1",
-        url: "/dashboard/profile",
-        name: "Profile",
+        id: 'sub-1-1',
+        url: '/dashboard/profile',
+        name: 'Profile',
         icon: <CircleUserRound />,
       },
       {
-        id: "sub-1-2",
-        url: "/dashboard/posts",
-        name: "Posts",
+        id: 'sub-1-2',
+        url: '/dashboard/posts',
+        name: 'Posts',
         icon: <MessageCircleHeart />,
       },
       {
-        id: "sub-1-3",
-        url: "/dashboard/notifcations",
-        name: "Notifications",
+        id: 'sub-1-3',
+        url: '/dashboard/notifcations',
+        name: 'Notifications',
         icon: <BellRing />,
       },
     ],
   },
   {
-    part: "Chats",
-    id: "part-2",
+    part: 'Chats',
+    id: 'part-2',
     sub: [
       {
-        id: "sub-2-1",
-        url: "/dashboard/contact",
-        name: "Contacts",
+        id: 'sub-2-1',
+        url: '/dashboard/contact',
+        name: 'Contacts',
         icon: <UsersRound />,
       },
       {
-        id: "sub-2-2",
-        url: "/dashboard/messages",
-        name: "Messages",
+        id: 'sub-2-2',
+        url: '/dashboard/messages',
+        name: 'Messages',
         icon: <MessageCircle />,
       },
     ],
   },
   {
-    part: "Dashboard",
-    id: "part-3",
+    part: 'Dashboard',
+    id: 'part-3',
     sub: [
       {
-        id: "sub-3-1",
-        url: "/dashboard/user-management",
-        name: "User Management",
+        id: 'sub-3-1',
+        url: '/dashboard/user-management',
+        name: 'User Management',
         icon: <ShieldUser />,
       },
       {
-        id: "sub-3-2",
-        url: "/dashboard/post-management",
-        name: "Post Management",
+        id: 'sub-3-2',
+        url: '/dashboard/post-management',
+        name: 'Post Management',
         icon: <Album />,
       },
       {
-        id: "sub-3-3",
-        url: "/dashboard/analysis",
-        name: "Analysis",
+        id: 'sub-3-3',
+        url: '/dashboard/analysis',
+        name: 'Analysis',
         icon: <ChartNoAxesCombined />,
       },
     ],
@@ -95,7 +95,7 @@ const Sidebar = () => {
     // const cookie = await cookies();
     // cookie.set("nextToken", "");
 
-    redirect("/login");
+    redirect('/login');
   };
 
   const handleNavigate = () => {
@@ -106,10 +106,10 @@ const Sidebar = () => {
     <AnimatePresence>
       {isOpen && (
         <motion.aside
-          initial={{ x: "-100%" }}
+          initial={{ x: '-100%' }}
           animate={{ x: 0 }}
-          exit={{ x: "-100%" }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
+          exit={{ x: '-100%' }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
           className="relative sidebar-section h-screen pl-6 pt-6 pr-3 w-full"
         >
           <div className="flex flex-col gap-3 w-full">

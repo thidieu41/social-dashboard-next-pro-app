@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Button } from "@/components-system/Button/Button";
-import { twMerge } from "tailwind-merge";
-import { X } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
-import React from "react";
+import { Button } from '@/components-system/Button/Button';
+import { twMerge } from 'tailwind-merge';
+import { X } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import React from 'react';
 
 type ModalProps = React.HTMLAttributes<HTMLDivElement> & {
   title?: string;
@@ -17,22 +17,22 @@ export default function Modal(props: ModalProps) {
   const { isOpen, onChangeModal, children, className, title } = props;
 
   const handleSetModalToogle = () => {
-    onChangeModal?.(!isOpen, title || "");
+    onChangeModal?.(!isOpen, title || '');
   };
 
-  const mergeClass = twMerge("p-4 flex-1 overflow-y-auto h-full", className);
+  const mergeClass = twMerge('p-4 flex-1 overflow-y-auto h-full', className);
 
   const childrenArray = React.Children.toArray(children);
   const actions = childrenArray.filter(
     (child: any) =>
       React.isValidElement(child) &&
-      (child?.type as any)?.displayName === "ModalActions"
+      (child?.type as any)?.displayName === 'ModalActions',
   );
 
   const content = childrenArray.filter(
     (child: any) =>
       React.isValidElement(child) &&
-      (child?.type as any)?.displayName !== "ModalActions"
+      (child?.type as any)?.displayName !== 'ModalActions',
   );
   return (
     <div className="relative overflow-hidden flex flex-col">
@@ -48,10 +48,10 @@ export default function Modal(props: ModalProps) {
       <AnimatePresence>
         {isOpen && (
           <motion.aside
-            initial={{ x: "100%" }}
+            initial={{ x: '100%' }}
             animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            exit={{ x: '100%' }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="modal-wrap fixed top-0 right-0 h-full md:w-1/3 w-3/4 shadow-2xl z-50 flex flex-col "
           >
             <div className="flex justify-between items-center p-4 border-b border-color">
@@ -77,7 +77,7 @@ export default function Modal(props: ModalProps) {
 
 export const ModalActions = (props: ModalActionsProps) => {
   const { className, children } = props;
-  const mergedClass = twMerge("flex justify-end gap-2 p-2", className);
+  const mergedClass = twMerge('flex justify-end gap-2 p-2', className);
   return (
     <div {...props} className={mergedClass}>
       {children}
@@ -85,4 +85,4 @@ export const ModalActions = (props: ModalActionsProps) => {
   );
 };
 
-ModalActions.displayName = "ModalActions";
+ModalActions.displayName = 'ModalActions';

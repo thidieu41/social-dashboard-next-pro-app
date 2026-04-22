@@ -1,4 +1,4 @@
-import { ThemeProvider as NextThemeProvider } from "next-themes";
+import { ThemeProvider as NextThemeProvider } from 'next-themes';
 
 const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -8,4 +8,4 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default ThemeProvider
+export default ThemeProvider;
