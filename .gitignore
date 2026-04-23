@@ -1,0 +1,9 @@
+# Root nên có .gitignore bao gồm
+node_modules/
+.env
+.env.local
+apps/api/.env
+apps/web/.env.local
+.turbo/
+dist/
+.next/
