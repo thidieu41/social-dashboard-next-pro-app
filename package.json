@@ -3,9 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
-  "main": "index.js",
   "scripts": {
-    "dev": "turbo run dev"
+    "dev": "turbo run dev",
+    "api": "turbo  run dev --filter=api",
+    "web": "turbo run dev --filter=social-dashboard-next-pro",
+    "build": "turbo run build",
+    "start": "turbo run start",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "test:coverage": "turbo run test:coverage",
+    "format:check": "turbo run format:check",
+    "type-check": "turbo run type-check"
   },
   "keywords": [],
   "author": "",

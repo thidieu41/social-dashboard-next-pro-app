@@ -1,9 +1,10 @@
 name: Quality Gate
 
 on:
+  push:
+    branches: ['main']
   pull_request:
-    branches:
-      - main
+    branches: ['main']
 
 jobs:
   quality:
@@ -17,26 +18,29 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
+        
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
 
       - name: Install deps
-        run: npm install
+        run: pnpm install
 
       # 1. ESLint check
       - name: Lint
-        run: npm run lint
+        run: pnpm run lint
 
       # 2. Prettier check
       - name: Format check
-        run: npm run format:check
+        run: pnpm run format:check
 
       # 3. Type check
       - name: TypeScript check
-        run: npm run type-check
+        run: pnpm run type-check
 
       # 4. Test
       - name: Run tests
-        run: npm run test
+        run: pnpm run test
 
       # 5. Coverage
       - name: Coverage check
-        run: npm run test:coverage
+        run: pnpm run test:coverage

@@ -8,6 +8,15 @@
     "lint": {},
     "test": {
       "outputs": ["coverage/**"]
+    },
+    "start": {
+      "dependsOn": ["^build"],
+      "cache": false
+    },
+    "type-check": {},
+    "format:check": {},
+    "test:coverage": {
+      "outputs": ["coverage/**"]
     }
   }
 }
