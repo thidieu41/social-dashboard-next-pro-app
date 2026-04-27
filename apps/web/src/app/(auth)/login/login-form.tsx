@@ -30,6 +30,7 @@ const FormLogin = () => {
             placeholder="Your email address..."
             starticon={<Mail />}
             name="email"
+            // value={'alice.nguyen@example.com'}
           />
 
           <Input
@@ -37,6 +38,7 @@ const FormLogin = () => {
             placeholder="Your passowrd..."
             starticon={<Key />}
             name="password"
+            // value={'p@ssW0rd123'}
           />
 
           <div className="flex gap-2">
@@ -53,7 +55,7 @@ const FormLogin = () => {
           </Button>
         </div>
         <div className="mt-3 text-sm text-center">
-          <span>{`Don't have an account?`}</span>
+          <span className="text-black">{`Don't have an account?`}</span>
           <Link href={'/register'} className="text-blue-400 ml-1 underline">
             Sign up
           </Link>

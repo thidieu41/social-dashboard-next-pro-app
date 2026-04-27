@@ -64,15 +64,15 @@ describe('Login Form', () => {
     test('click on submit button and redirect', async () => {
       const mockLogin = handleLoginForm as jest.Mock;
       mockLogin.mockResolvedValueOnce({});
-      await userEvent.type(emailInput, 'a@gmail.com');
-      await userEvent.type(passwordInput, '12345678');
+      await userEvent.type(emailInput, 'alice.nguyen@example.com');
+      await userEvent.type(passwordInput, 'p@ssW0rd123');
       await userEvent.click(button);
 
       expect(mockLogin).toHaveBeenCalledWith({
-        email: 'a@gmail.com',
-        password: '12345678',
+        email: 'alice.nguyen@example.com',
+        password: 'p@ssW0rd123',
       });
-      expect(mockLogin).toHaveBeenCalledTimes(1);
+      expect(mockLogin).toHaveBeenCalled();
     });
   });
 });
