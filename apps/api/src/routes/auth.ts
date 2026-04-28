@@ -1,6 +1,7 @@
 import { Router, Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
-import { userList } from '../mock/user';
+import { LoginSchema, RegisterSchema } from '@repo/types';
+import { userList } from '@repo/mock';
 
 const router = Router();
 
@@ -11,12 +12,12 @@ router.post('/login', async (req: Request, res: Response) => {
     return;
   }
 
-  const { email, password } = req.body;
-
-  if (!email || !password) {
-    res.status(400).json({ message: 'Missing credentials' });
+  const result = LoginSchema.safeParse(req.body);
+  if (!result.success) {
+    res.status(400).json({ message: result.error.issues[0].message });
     return;
   }
+  const { email, password } = result.data;
 
   const user = userList.find((u) => u.email === email && u.password === password);
 
@@ -35,12 +36,13 @@ router.post('/login', async (req: Request, res: Response) => {
 });
 
 router.post('/register', async (req: Request, res: Response) => {
-  const { id, name, email, password } = req.body;
-
-  if (!email || !password) {
-    res.status(400).json({ message: 'Missing credentials' });
+  const result = RegisterSchema.safeParse(req.body);
+  if (!result.success) {
+    res.status(400).json({ message: result.error.issues[0].message });
     return;
   }
+  const { name, email, password } = result.data;
+  const id = (req.body.id as string) ?? crypto.randomUUID();
 
   const existingUser = userList.find((item) => item.email === email);
   if (existingUser) {
@@ -55,3 +57,4 @@ router.post('/register', async (req: Request, res: Response) => {
 });
 
 export default router;
+

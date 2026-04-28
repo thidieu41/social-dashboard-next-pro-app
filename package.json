@@ -12,6 +12,7 @@
     "lint": "turbo run lint",
     "test": "turbo run test",
     "test:coverage": "turbo run test:coverage",
+    "format": "turbo run format",
     "format:check": "turbo run format:check",
     "type-check": "turbo run type-check"
   },
@@ -20,6 +21,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.21.0",
   "devDependencies": {
+    "prettier": "^3.8.3",
     "turbo": "^2.9.6"
   }
 }

@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { useSidebar } from './SidebarProvider';
-import { redirect } from 'next/navigation';
+import { redirect, usePathname } from 'next/navigation';
 import { Button } from '@/components-system/Button/Button';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useProgressBar } from '../ProgressBar/ProgressProvider';
@@ -37,7 +37,7 @@ const sidebarList = [
       },
       {
         id: 'sub-1-3',
-        url: '/dashboard/notifcations',
+        url: '/dashboard/notifications',
         name: 'Notifications',
         icon: <BellRing />,
       },
@@ -49,7 +49,7 @@ const sidebarList = [
     sub: [
       {
         id: 'sub-2-1',
-        url: '/dashboard/contact',
+        url: '/dashboard/contacts',
         name: 'Contacts',
         icon: <UsersRound />,
       },
@@ -90,6 +90,7 @@ const sidebarList = [
 const Sidebar = () => {
   const { isOpen } = useSidebar();
   const { start } = useProgressBar();
+  const pathname = usePathname();
 
   const handleLogout = async () => {
     // const cookie = await cookies();
@@ -121,7 +122,9 @@ const Sidebar = () => {
                     <div key={subItem.id}>
                       <Link
                         href={subItem.url}
-                        className="sidebar-sub-item flex flex-row gap-2 w-full py-2 px-3 rounded-lg cursor-pointer"
+                        className={`sidebar-sub-item flex flex-row gap-2 w-full py-2 px-3 rounded-lg cursor-pointer ${
+                          pathname === subItem.url ? 'active' : ''
+                        }`}
                         onClick={handleNavigate}
                       >
                         <span>{subItem.icon}</span>

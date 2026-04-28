@@ -9,8 +9,10 @@ import { LoginSchema } from './schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { LoginType } from '@/types';
 import { handleLoginForm } from '@/actions/auth-action';
+import { useRouter } from 'next/dist/client/components/navigation';
 
 const FormLogin = () => {
+  const router = useRouter();
   const methods = useForm<LoginType>({
     resolver: zodResolver(LoginSchema),
   });
@@ -18,6 +20,7 @@ const FormLogin = () => {
   const loginSubmit = async (data: LoginType) => {
     try {
       await handleLoginForm(data);
+      router.push('/dashboard');
     } catch {}
   };
 
@@ -30,7 +33,7 @@ const FormLogin = () => {
             placeholder="Your email address..."
             starticon={<Mail />}
             name="email"
-            // value={'alice.nguyen@example.com'}
+            value={'alice.nguyen@example.com'}
           />
 
           <Input
@@ -38,7 +41,7 @@ const FormLogin = () => {
             placeholder="Your passowrd..."
             starticon={<Key />}
             name="password"
-            // value={'p@ssW0rd123'}
+            value={'p@ssW0rd123'}
           />
 
           <div className="flex gap-2">
