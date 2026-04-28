@@ -1,6 +1,6 @@
 'use server';
 
-import { LoginType, RegisterType } from '@/types';
+import { LoginType, RegisterType } from '@repo/shared/types';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 

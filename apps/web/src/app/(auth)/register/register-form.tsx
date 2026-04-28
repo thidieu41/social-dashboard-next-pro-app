@@ -2,8 +2,8 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProvider, useForm } from 'react-hook-form';
-import { RegisterSchema } from './schema';
-import { RegisterType } from '@/types';
+import { RegisterSchema } from '@repo/shared/schema';
+import { RegisterType } from '@repo/shared/types';
 import Input from '@/components-system/Input/Input';
 import { Key, Mail, User } from 'lucide-react';
 import { Button } from '@/components-system/Button/Button';

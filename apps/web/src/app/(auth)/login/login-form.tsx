@@ -5,12 +5,14 @@ import Input from '@/components-system/Input/Input';
 import { Key, Mail } from 'lucide-react';
 import Link from 'next/link';
 import { FormProvider, useForm } from 'react-hook-form';
-import { LoginSchema } from './schema';
+import { LoginSchema } from '@repo/shared/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { LoginType } from '@/types';
+import { LoginType } from '@repo/shared/types';
 import { handleLoginForm } from '@/actions/auth-action';
+import { useRouter } from 'next/navigation';
 
 const FormLogin = () => {
+  const router = useRouter();
   const methods = useForm<LoginType>({
     resolver: zodResolver(LoginSchema),
   });
@@ -18,6 +20,7 @@ const FormLogin = () => {
   const loginSubmit = async (data: LoginType) => {
     try {
       await handleLoginForm(data);
+      router.push('/dashboard');
     } catch {}
   };
 

@@ -1,4 +1,11 @@
-export const userList = [
+export type User = {
+  id: string;
+  name: string;
+  email: string;
+  password: string;
+};
+
+export const userList: User[] = [
   {
     id: 'a9f2c6b1-4b77-4f23-93d2-82ef58da91a1',
     name: 'Alice Nguyen',

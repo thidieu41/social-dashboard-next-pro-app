@@ -159,10 +159,12 @@ button:hover {
 .sidebar-section {
   background: var(--color-sidebar-bg);
 }
-.sidebar-sub-item:hover {
+.sidebar-sub-item:hover,
+.sidebar-sub-item.active {
   background: var(--color-sidebar-hover);
   color: var(--color-sidebar-active-text);
 }
+
 .sidebar-part-title {
   color: var(--color-text-secondary);
 }

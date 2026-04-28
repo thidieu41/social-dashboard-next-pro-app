@@ -12,14 +12,20 @@
     "lint": "turbo run lint",
     "test": "turbo run test",
     "test:coverage": "turbo run test:coverage",
+    "format": "turbo run format",
     "format:check": "turbo run format:check",
     "type-check": "turbo run type-check"
   },
+  "prettier": "@repo/config/prettier",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.21.0",
   "devDependencies": {
-    "turbo": "^2.9.6"
+    "@repo/config": "workspace:*",
+    "eslint": "^9.39.4",
+    "prettier": "^3.8.3",
+    "turbo": "^2.9.6",
+    "typescript-eslint": "^8.59.1"
   }
 }
