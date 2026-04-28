@@ -1,7 +1,7 @@
 import { Router, Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
-import { LoginSchema, RegisterSchema } from '@repo/types';
-import { userList } from '@repo/mock';
+import { LoginSchema, RegisterSchema } from '@repo/shared/schema';
+import { userList } from '@repo/shared/mock';
 
 const router = Router();
 

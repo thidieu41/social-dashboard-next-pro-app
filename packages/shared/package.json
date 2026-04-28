@@ -1,0 +1,35 @@
+{
+  "name": "@repo/shared",
+  "version": "1.0.0",
+  "exports": {
+    "./mock": "./src/mock/index.ts",
+    "./schema": "./src/schema/index.ts",
+    "./types": "./src/types/index.ts"
+  },
+  "typesVersions": {
+    "*": {
+      "mock": [
+        "./src/mock/index.ts"
+      ],
+      "schema": [
+        "./src/schema/index.ts"
+      ],
+      "types": [
+        "./src/types/index.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint . --ext .ts"
+  },
+  "peerDependencies": {
+    "zod": ">=3.0.0"
+  },
+  "devDependencies": {
+    "@repo/config": "workspace:*",
+    "typescript": "^5.9.3"
+  }
+}

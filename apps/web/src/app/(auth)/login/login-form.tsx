@@ -5,11 +5,11 @@ import Input from '@/components-system/Input/Input';
 import { Key, Mail } from 'lucide-react';
 import Link from 'next/link';
 import { FormProvider, useForm } from 'react-hook-form';
-import { LoginSchema } from './schema';
+import { LoginSchema } from '@repo/shared/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { LoginType } from '@/types';
+import { LoginType } from '@repo/shared/types';
 import { handleLoginForm } from '@/actions/auth-action';
-import { useRouter } from 'next/dist/client/components/navigation';
+import { useRouter } from 'next/navigation';
 
 const FormLogin = () => {
   const router = useRouter();
@@ -33,7 +33,7 @@ const FormLogin = () => {
             placeholder="Your email address..."
             starticon={<Mail />}
             name="email"
-            value={'alice.nguyen@example.com'}
+            // value={'alice.nguyen@example.com'}
           />
 
           <Input
@@ -41,7 +41,7 @@ const FormLogin = () => {
             placeholder="Your passowrd..."
             starticon={<Key />}
             name="password"
-            value={'p@ssW0rd123'}
+            // value={'p@ssW0rd123'}
           />
 
           <div className="flex gap-2">
