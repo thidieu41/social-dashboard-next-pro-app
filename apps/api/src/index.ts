@@ -4,7 +4,7 @@ import cors from 'cors';
 import authRouter from './routes/auth';
 
 const app = express();
-const PORT = 5000;
+const PORT = Number(process.env.PORT) || 5000;
 
 app.use(cors({
   origin: process.env.WEB_ORIGIN || 'http://localhost:8000',
