@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const token = request.cookies.get('nextToken')?.value;
   const pathname = request.nextUrl.pathname;
 
@@ -19,7 +19,7 @@ export function middleware(request: NextRequest) {
   return NextResponse.next();
 }
 
-// Áp dụng middleware cho tất cả path trừ static
+// Áp dụng proxy cho tất cả path trừ static
 export const config = {
   matcher: ['/((?!api|_next/static|favicon.ico|images).*)'],
 };
