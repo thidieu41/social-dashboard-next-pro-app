@@ -31,22 +31,22 @@ export const information = [
 export const address = [
   {
     labelName: 'Country',
-    content: 'Trubel',
+    content: 'VIETNAM',
     keyContent: 'country',
   },
   {
     labelName: 'City/State',
-    content: 'Theresa',
+    content: 'Da Nang',
     keyContent: 'city',
   },
   {
     labelName: 'Postal Code',
-    content: 'trubeltheresa@gmail.dev',
+    content: '550000',
     keyContent: 'code',
   },
   {
     labelName: 'TAX ID',
-    content: '0367762327',
+    content: '123456789',
     keyContent: 'tax',
   },
 ];

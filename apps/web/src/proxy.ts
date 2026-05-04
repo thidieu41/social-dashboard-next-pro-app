@@ -5,13 +5,15 @@ export function proxy(request: NextRequest) {
   const token = request.cookies.get('nextToken')?.value;
   const pathname = request.nextUrl.pathname;
 
-  // ✅ Cho phép /login truy cập mà không bị redirect vòng lặp
-  if (!token && pathname !== '/login') {
+  const publicPaths = ['/login', '/register'];
+
+  // ✅ Cho phép /login, /register truy cập mà không bị redirect vòng lặp
+  if (!token && !publicPaths.includes(pathname)) {
     return NextResponse.redirect(new URL('/login', request.url));
   }
 
-  // ✅ Nếu có token rồi mà vẫn vào /login => đưa sang /dashboard
-  if (token && (pathname === '/login' || pathname === '/')) {
+  // ✅ Nếu có token rồi mà vẫn vào /login hoặc /register => đưa sang /dashboard
+  if (token && (publicPaths.includes(pathname) || pathname === '/')) {
     return NextResponse.redirect(new URL('/dashboard', request.url));
   }
 

@@ -3,7 +3,7 @@
 :root {
   /* Base colors */
   --color-bg: #f8fafc; /* nền tổng thể sáng dịu */
-  --color-text: #1e293b; /* chữ chính */
+  --color-text: #171717; /* chữ chính - neutral-900 */
   --color-text-secondary: #6b7280; /* chữ phụ */
   --color-text-title: #2563eb; /* tiêu đề xanh nhẹ */
 

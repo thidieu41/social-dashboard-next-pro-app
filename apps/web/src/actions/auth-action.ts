@@ -47,7 +47,7 @@ export const handleRegisterForm = async (formData: RegisterType) => {
   const data = await res.json();
 
   if (!res.ok) {
-    return { res };
+    throw new Error(data.message || 'Register failed');
   }
   return { success: true, data };
 };
