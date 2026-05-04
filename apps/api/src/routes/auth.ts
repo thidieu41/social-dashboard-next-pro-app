@@ -41,7 +41,7 @@ router.post('/register', async (req: Request, res: Response) => {
     res.status(400).json({ message: result.error.issues[0].message });
     return;
   }
-  const { name, email, password } = result.data;
+  const { email, password } = result.data;
   const id = (req.body.id as string) ?? crypto.randomUUID();
 
   const existingUser = userList.find((item) => item.email === email);
@@ -50,9 +50,9 @@ router.post('/register', async (req: Request, res: Response) => {
     return;
   }
 
-  res.json({
+  res.status(201).json({
     message: 'Register successful',
-    user: { id, name, email },
+    user: { id, email, password },
   });
 });
 
