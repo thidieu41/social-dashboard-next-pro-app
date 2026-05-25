@@ -6,7 +6,7 @@ import ProgressBarProvider from '@/components/ProgressBar/ProgressProvider';
 import ProgressWatcher from '@/components/ProgressBar/ProgressBarWatcher';
 import './globals.css';
 
-// const StoreProvider = dynamic(() => import("../providers/StoreProvider"));
+const StoreProvider = dynamic(() => import('@/providers/StoreProvider'));
 const ThemeProvider = dynamic(() => import('@/providers/ThemeProvider'));
 const ToastProvider = dynamic(
   () => import('@/components-system/toast/ToastProvider'),
@@ -32,16 +32,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${roboto.variable}`}>
-        {/* <StoreProvider> */}
-        <ProgressBarProvider>
-          <ProgressBar />
-          <ProgressWatcher />
-          <ToastProvider>
-            <ThemeProvider>{children}</ThemeProvider>
-          </ToastProvider>
-        </ProgressBarProvider>
-
-        {/* </StoreProvider> */}
+        <StoreProvider>
+          <ProgressBarProvider>
+            <ProgressBar />
+            <ProgressWatcher />
+            <ToastProvider>
+              <ThemeProvider>{children}</ThemeProvider>
+            </ToastProvider>
+          </ProgressBarProvider>
+        </StoreProvider>
       </body>
     </html>
   );

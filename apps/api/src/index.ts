@@ -2,6 +2,9 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import authRouter from './routes/auth';
+import notificationsRouter from './routes/notifications';
+import contactsRouter from './routes/contacts';
+import messagesRouter from './routes/messages';
 
 const app = express();
 const PORT = Number(process.env.PORT) || 5000;
@@ -17,6 +20,9 @@ app.get('/', (_req, res) => {
 });
 
 app.use('/api', authRouter);
+app.use('/api', notificationsRouter);
+app.use('/api', contactsRouter);
+app.use('/api', messagesRouter);
 
 app.listen(PORT, () => {
   console.log(`API running on port ${PORT}`);

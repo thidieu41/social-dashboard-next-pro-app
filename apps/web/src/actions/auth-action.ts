@@ -1,10 +1,14 @@
 'use server';
 
 import { LoginType, RegisterType } from '@repo/shared/types';
+import { User } from '@repo/shared/mock';
 import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
 
-export const handleLoginForm = async (formData: LoginType) => {
+type AuthUser = Omit<User, 'password'>;
+
+export const handleLoginForm = async (
+  formData: LoginType,
+): Promise<{ user: AuthUser; token: string }> => {
   const apiUrl = process.env.API_URL || 'http://localhost:5000';
   const res = await fetch(`${apiUrl}/api/login`, {
     method: 'POST',
@@ -19,7 +23,7 @@ export const handleLoginForm = async (formData: LoginType) => {
   }
 
   const data = await res.json();
-  const token = data.token;
+  const { user, token } = data as { user: AuthUser; token: string };
 
   const cookie = await cookies();
 
@@ -28,10 +32,10 @@ export const handleLoginForm = async (formData: LoginType) => {
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'lax',
     path: '/',
-    maxAge: 60 * 60 * 24 * 5, // 15 phút
+    maxAge: 60 * 60 * 24 * 5,
   });
 
-  redirect('/dashboard');
+  return { user, token };
 };
 
 export const handleRegisterForm = async (formData: RegisterType) => {

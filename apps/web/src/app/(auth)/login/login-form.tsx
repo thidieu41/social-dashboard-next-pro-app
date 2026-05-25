@@ -10,16 +10,20 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { LoginType } from '@repo/shared/types';
 import { handleLoginForm } from '@/actions/auth-action';
 import { useRouter } from 'next/navigation';
+import { useAppDispatch } from '@/lib/hooks';
+import { setCredentials } from '@/lib/features/auth/authSlice';
 
 const FormLogin = () => {
   const router = useRouter();
+  const dispatch = useAppDispatch();
   const methods = useForm<LoginType>({
     resolver: zodResolver(LoginSchema),
   });
 
   const loginSubmit = async (data: LoginType) => {
     try {
-      await handleLoginForm(data);
+      const { user, token } = await handleLoginForm(data);
+      dispatch(setCredentials({ user, token }));
       router.push('/dashboard');
     } catch {}
   };
