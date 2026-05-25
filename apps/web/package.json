@@ -15,10 +15,11 @@
     "check": "npm run lint && npm run type-check && npm run test:coverage"
   },
   "dependencies": {
-    "@repo/shared": "workspace:*",
     "@hookform/resolvers": "^5.2.2",
     "@reduxjs/toolkit": "^2.9.2",
+    "@repo/shared": "workspace:*",
     "@tailwindcss/postcss": "^4.1.16",
+    "@tanstack/react-table": "^8.21.3",
     "cookie": "^1.0.2",
     "framer-motion": "^12.23.24",
     "lucide-react": "^0.548.0",

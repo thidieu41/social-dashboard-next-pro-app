@@ -31,9 +31,9 @@ const sidebarList = [
       },
       {
         id: 'sub-1-2',
-        url: '/dashboard/posts',
-        name: 'Posts',
-        icon: <MessageCircleHeart />,
+        url: '/dashboard/users',
+        name: 'Users',
+        icon: <UsersRound />,
       },
       {
         id: 'sub-1-3',

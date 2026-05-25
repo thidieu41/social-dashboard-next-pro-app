@@ -12,6 +12,11 @@ jest.mock('next/navigation', () => ({
   redirect: jest.fn(),
 }));
 
+jest.mock('@/lib/hooks', () => ({
+  useAppDispatch: jest.fn(() => jest.fn()),
+  useAppSelector: jest.fn(() => ({})),
+}));
+
 describe('Login Form', () => {
   let button: HTMLElement;
   let emailInput: HTMLElement;
